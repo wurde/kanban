@@ -1,0 +1,12 @@
+{
+  "name": "kanban",
+  "version": "0.1.0",
+  "description": "A project management application.",
+  "private": true,
+  "scripts": {
+    "start": "npm start --prefix client"
+  },
+  "keywords": ["project", "kanban", "react"],
+  "author": "Andy Bettisworth",
+  "license": "MIT"
+}
