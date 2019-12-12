@@ -12,14 +12,18 @@ describe('Accessibility', () => {
 
     cy.get('h6').should('have.css', 'color', 'rgb(0, 0, 0)');
 
-    cy.get('.list').should(
+    cy.get('.list-wrapper').should(
       'have.css',
       'background-color',
-      'rgb(239, 239, 239)'
-    ).should('have.css', 'height', '100%');
+      'rgb(241, 241, 244)'
+    );
 
     cy.get('.card')
-      .should('have.css', 'background-color', 'rgb(255, 255, 255)')
-      .should('have.css', 'box-shadow', '0 3px 5px #999;');
+      .should('have.css', 'background-color', 'rgb(255, 243, 205)')
+      .should(
+        'have.css',
+        'box-shadow',
+        'rgba(77, 99, 119, 0.47) 0px 2px 4px -2px'
+      );
   });
 });
