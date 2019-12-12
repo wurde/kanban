@@ -2,10 +2,11 @@
  * Dependencies
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Row, Column } from '@wurde/components';
 import { Heading, Button, Icon } from '@wurde/components';
+import { Modal, Card, Paragraph, Divider } from '@wurde/components';
 
 /**
  * Define styles
@@ -33,8 +34,9 @@ const ListWrapper = styled.div`
   width: 450px;
   height: 100%;
   margin: 0 15px;
-  background-color: #efefef;
+  background-color: #f1f1f4;
   white-space: nowrap;
+  border-radius: 5px;
 `;
 
 const List = styled.div`
@@ -61,19 +63,26 @@ const ListActions = styled.div`
   padding: 5px 0;
 `
 
-const Card = styled.div`
-  padding: 10px;
-  margin-bottom: 15px;
-  background-color: #FFF;
-  cursor: pointer;
-  box-shadow: 0 3px 5px #999;
-`
+const CardStyle = {
+  padding: '10px',
+  marginBottom: '15px',
+  backgroundColor: '#FFF3CD',
+  borderRadius: 0,
+  zIndex: 0,
+  cursor: 'pointer'
+};
 
 /**
  * Define component
  */
 
 function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  function toggleModal() {
+    setIsModalOpen(!isModalOpen);
+  }
+
   return (
     <Row>
       <Column>
@@ -87,39 +96,102 @@ function App() {
               </ListHeader>
 
               <ListContent className="list-content">
-                <Card className="card">Card #8</Card>
-                <Card className="card">Card #7</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #3</Card>
-                <Card className="card">Card #2</Card>
-                <Card className="card">Card #1</Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #8
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #7
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #6
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #3
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #2
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #1
+                </Card>
               </ListContent>
 
               <ListActions className="list-actions">
-                <Button type="secondary" style={{ display: 'flex', alignItems: 'center' }}>
-                  <Icon type="plus" size={15} style={{ marginBottom: '-5px', marginRight: '5px' }} />
+                <Button
+                  type="secondary"
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <Icon
+                    type="plus"
+                    size={15}
+                    style={{ marginBottom: '-5px', marginRight: '5px' }}
+                  />
                   Add a card
                 </Button>
               </ListActions>
@@ -135,12 +207,21 @@ function App() {
               </ListHeader>
 
               <ListContent className="list-content">
-                <Card className="card">Card #5</Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #5
+                </Card>
               </ListContent>
 
               <ListActions className="list-actions">
-                <Button type="secondary" style={{ display: 'flex', alignItems: 'center' }}>
-                  <Icon type="plus" size={15} style={{ marginBottom: '-5px', marginRight: '5px' }} />
+                <Button
+                  type="secondary"
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <Icon
+                    type="plus"
+                    size={15}
+                    style={{ marginBottom: '-5px', marginRight: '5px' }}
+                  />
                   Add a card
                 </Button>
               </ListActions>
@@ -156,12 +237,21 @@ function App() {
               </ListHeader>
 
               <ListContent className="list-content">
-                <Card className="card">Card #4</Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #4
+                </Card>
               </ListContent>
 
               <ListActions className="list-actions">
-                <Button type="secondary" style={{ display: 'flex', alignItems: 'center' }}>
-                  <Icon type="plus" size={15} style={{ marginBottom: '-5px', marginRight: '5px' }} />
+                <Button
+                  type="secondary"
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <Icon
+                    type="plus"
+                    size={15}
+                    style={{ marginBottom: '-5px', marginRight: '5px' }}
+                  />
                   Add a card
                 </Button>
               </ListActions>
@@ -177,20 +267,73 @@ function App() {
               </ListHeader>
 
               <ListContent className="list-content">
-                <Card className="card">Card #3</Card>
-                <Card className="card">Card #2</Card>
-                <Card className="card">Card #1</Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #3
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #2
+                </Card>
+                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
+                  Card #1
+                </Card>
               </ListContent>
 
               <ListActions className="list-actions">
-                <Button type="secondary" style={{ display: 'flex', alignItems: 'center' }}>
-                  <Icon type="plus" size={15} style={{ marginBottom: '-5px', marginRight: '5px' }} />
+                <Button
+                  type="secondary"
+                  style={{ display: 'flex', alignItems: 'center' }}
+                >
+                  <Icon
+                    type="plus"
+                    size={15}
+                    style={{ marginBottom: '-5px', marginRight: '5px' }}
+                  />
                   Add a card
                 </Button>
               </ListActions>
             </List>
           </ListWrapper>
         </Board>
+
+        <Modal isOpen={isModalOpen} toggleModal={toggleModal}>
+          <Row>
+            <Column spacing={2}>
+              <Heading type="h3">Title</Heading>
+            </Column>
+
+            <Column>
+              <Divider />
+            </Column>
+
+            <Column spacing={2}>
+              <Paragraph>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
+                aliquet, ligula a commodo bibendum, ipsum augue varius lectus,
+                sit amet pellentesque mauris eros nec arcu. Morbi id placerat
+                ante, at gravida orci. Proin ac nibh pulvinar ipsum porta
+                scelerisque. Donec bibendum, mi nec fringilla fringilla, dolor
+                metus scelerisque elit, quis placerat erat tortor lacinia dui.
+              </Paragraph>
+            </Column>
+
+            <Column>
+              <Divider />
+            </Column>
+
+            <Column spacing={4}>
+              <Button
+                type="success"
+                onClick={toggleModal}
+                style={{ marginRight: '15px' }}
+              >
+                Confirm
+              </Button>
+              <Button type="secondary" onClick={toggleModal}>
+                Cancel
+              </Button>
+            </Column>
+          </Row>
+        </Modal>
       </Column>
     </Row>
   );
