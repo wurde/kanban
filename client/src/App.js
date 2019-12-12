@@ -5,7 +5,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Row, Column } from '@wurde/components';
-import { Heading, Button } from '@wurde/components';
+import { Heading, Button, Icon } from '@wurde/components';
 
 /**
  * Define styles
@@ -46,6 +46,7 @@ const List = styled.div`
 `
 
 const ListHeader = styled.div`
+  padding-top: 5px;
 `
 
 const ListContent = styled.div`
@@ -57,6 +58,7 @@ const ListContent = styled.div`
 `
 
 const ListActions = styled.div`
+  padding: 5px 0;
 `
 
 const Card = styled.div`
@@ -116,7 +118,10 @@ function App() {
               </ListContent>
 
               <ListActions className="list-actions">
-                <Button type="secondary">Add a card</Button>
+                <Button type="secondary" style={{ display: 'flex', alignItems: 'center' }}>
+                  <Icon type="plus" size={15} style={{ marginBottom: '-5px', marginRight: '5px' }} />
+                  Add a card
+                </Button>
               </ListActions>
             </List>
           </ListWrapper>
@@ -134,7 +139,10 @@ function App() {
               </ListContent>
 
               <ListActions className="list-actions">
-                <Button type="secondary">Add a card</Button>
+                <Button type="secondary" style={{ display: 'flex', alignItems: 'center' }}>
+                  <Icon type="plus" size={15} style={{ marginBottom: '-5px', marginRight: '5px' }} />
+                  Add a card
+                </Button>
               </ListActions>
             </List>
           </ListWrapper>
@@ -152,7 +160,10 @@ function App() {
               </ListContent>
 
               <ListActions className="list-actions">
-                <Button type="secondary">Add a card</Button>
+                <Button type="secondary" style={{ display: 'flex', alignItems: 'center' }}>
+                  <Icon type="plus" size={15} style={{ marginBottom: '-5px', marginRight: '5px' }} />
+                  Add a card
+                </Button>
               </ListActions>
             </List>
           </ListWrapper>
@@ -172,7 +183,10 @@ function App() {
               </ListContent>
 
               <ListActions className="list-actions">
-                <Button type="secondary">Add a card</Button>
+                <Button type="secondary" style={{ display: 'flex', alignItems: 'center' }}>
+                  <Icon type="plus" size={15} style={{ marginBottom: '-5px', marginRight: '5px' }} />
+                  Add a card
+                </Button>
               </ListActions>
             </List>
           </ListWrapper>
