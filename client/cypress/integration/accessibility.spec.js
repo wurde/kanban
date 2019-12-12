@@ -16,7 +16,7 @@ describe('Accessibility', () => {
       'have.css',
       'background-color',
       'rgb(239, 239, 239)'
-    );
+    ).should('have.css', 'height', '100%');
 
     cy.get('.card').should(
       'have.css',

@@ -5,7 +5,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Row, Column } from '@wurde/components';
-import { Heading } from '@wurde/components';
+import { Heading, Button } from '@wurde/components';
 
 /**
  * Define styles
@@ -18,10 +18,19 @@ const Board = styled.div`
 `
 
 const List = styled.div`
-  width: 500px;
+  width: 450px;
+  height: 100%;
   padding: 15px;
   margin: 15px;
   background-color: #EFEFEF;
+`
+const ListHeader = styled.div`
+`
+
+const ListContent = styled.div`
+`
+
+const ListActions = styled.div`
 `
 
 const Card = styled.div`
@@ -41,24 +50,93 @@ function App() {
       <Column>
         <Board id="board">
           <List className="list">
-            <Heading type="h6">Backlog</Heading>
-            <Card className="card">Card #8</Card>
-            <Card className="card">Card #7</Card>
-            <Card className="card">Card #6</Card>
+            <ListHeader className="list-header">
+              <Heading type="h6" style={{ marginBottom: '10px' }}>
+                Backlog
+              </Heading>
+            </ListHeader>
+
+            <ListContent className="list-content">
+              <Card className="card">Card #8</Card>
+              <Card className="card">Card #7</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+              <Card className="card">Card #6</Card>
+            </ListContent>
+
+            <ListActions className="list-actions">
+              <Button type="secondary">Add a card</Button>
+            </ListActions>
           </List>
           <List className="list">
-            <Heading type="h6">To Do</Heading>
-            <Card className="card">Card #5</Card>
+            <ListHeader className="list-header">
+              <Heading type="h6" style={{ marginBottom: '10px' }}>
+                To Do
+              </Heading>
+            </ListHeader>
+
+            <ListContent className="list-content">
+              <Card className="card">Card #5</Card>
+            </ListContent>
+
+            <ListActions className="list-actions">
+              <Button type="secondary">Add a card</Button>
+            </ListActions>
           </List>
           <List className="list">
-            <Heading type="h6">In Progress</Heading>
-            <Card className="card">Card #4</Card>
+            <ListHeader className="list-header">
+              <Heading type="h6" style={{ marginBottom: '10px' }}>
+                In Progress
+              </Heading>
+            </ListHeader>
+
+            <ListContent className="list-content">
+              <Card className="card">Card #4</Card>
+            </ListContent>
+
+            <ListActions className="list-actions">
+              <Button type="secondary">Add a card</Button>
+            </ListActions>
           </List>
           <List className="list">
-            <Heading type="h6">Done</Heading>
-            <Card className="card">Card #3</Card>
-            <Card className="card">Card #2</Card>
-            <Card className="card">Card #1</Card>
+            <ListHeader className="list-header">
+              <Heading type="h6" style={{ marginBottom: '10px' }}>
+                Done
+              </Heading>
+            </ListHeader>
+
+            <ListContent className="list-content">
+              <Card className="card">Card #3</Card>
+              <Card className="card">Card #2</Card>
+              <Card className="card">Card #1</Card>
+            </ListContent>
+
+            <ListActions className="list-actions">
+              <Button type="secondary">Add a card</Button>
+            </ListActions>
           </List>
         </Board>
       </Column>
