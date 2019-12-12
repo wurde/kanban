@@ -18,10 +18,8 @@ describe('Accessibility', () => {
       'rgb(239, 239, 239)'
     ).should('have.css', 'height', '100%');
 
-    cy.get('.card').should(
-      'have.css',
-      'background-color',
-      'rgb(255, 255, 255)'
-    );
+    cy.get('.card')
+      .should('have.css', 'background-color', 'rgb(255, 255, 255)')
+      .should('have.css', 'box-shadow', '0 3px 5px #999;');
   });
 });
