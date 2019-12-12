@@ -38,6 +38,9 @@ const ListWrapper = styled.div`
 `;
 
 const List = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: relative;
   max-height: 100%;
   padding: 0 15px;
 `
@@ -47,6 +50,10 @@ const ListHeader = styled.div`
 
 const ListContent = styled.div`
   max-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding-right: 4px;
+  margin-right: 4px;
 `
 
 const ListActions = styled.div`
@@ -103,9 +110,9 @@ function App() {
                 <Card className="card">Card #6</Card>
                 <Card className="card">Card #6</Card>
                 <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
-                <Card className="card">Card #6</Card>
+                <Card className="card">Card #3</Card>
+                <Card className="card">Card #2</Card>
+                <Card className="card">Card #1</Card>
               </ListContent>
 
               <ListActions className="list-actions">
