@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Row, Column } from '@wurde/components';
 import { Heading, Button, Icon } from '@wurde/components';
-import { Modal, Card, Paragraph, Divider } from '@wurde/components';
+import { Modal, Card, Text, Paragraph, Divider } from '@wurde/components';
 
 /**
  * Define styles
@@ -31,7 +31,8 @@ const Board = styled.div`
 const ListWrapper = styled.div`
   display: inline-block;
   box-sizing: border-box;
-  width: 450px;
+  width: 300px;
+  // width: 450px;
   height: 100%;
   margin: 0 15px;
   background-color: #f1f1f4;
@@ -69,8 +70,16 @@ const CardStyle = {
   backgroundColor: '#FFF3CD',
   borderRadius: 0,
   zIndex: 0,
-  cursor: 'pointer'
+  cursor: 'pointer',
+  draggable: true,
 };
+
+const CardTitleStyle = {
+  display: 'flex',
+  wordWrap: 'break-word',
+  clear: 'both',
+  overflow: 'hidden',
+}
 
 /**
  * Define component
@@ -97,88 +106,16 @@ function App() {
 
               <ListContent className="list-content">
                 <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #8
+                  <Text style={CardTitleStyle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
                 </Card>
                 <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #7
+                  <Text style={CardTitleStyle}>Fusce eu dui tortor. Mauris vel venenatis felis. Praesent sit amet justo est. Cras id suscipit lacus, et laoreet eros.</Text>
                 </Card>
                 <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
+                  <Text style={CardTitleStyle}>Nulla libero urna, mollis rutrum purus vitae, posuere placerat magna.</Text>
                 </Card>
                 <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #6
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #3
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #2
-                </Card>
-                <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #1
+                  <Text style={CardTitleStyle}>Aliquam tristique non nunc nec pellentesque. Cras porttitor pretium libero id fermentum.</Text>
                 </Card>
               </ListContent>
 
@@ -208,7 +145,7 @@ function App() {
 
               <ListContent className="list-content">
                 <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #5
+                  Proin ac nibh pulvinar ipsum.
                 </Card>
               </ListContent>
 
@@ -238,7 +175,7 @@ function App() {
 
               <ListContent className="list-content">
                 <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #4
+                  Mollis rutrum purus vitae.
                 </Card>
               </ListContent>
 
@@ -268,13 +205,13 @@ function App() {
 
               <ListContent className="list-content">
                 <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #3
+                  <Text style={CardTitleStyle}>Nulla libero urna, mollis rutrum purus vitae, posuere placerat magna.</Text>
                 </Card>
                 <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #2
+                  <Text style={CardTitleStyle}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
                 </Card>
                 <Card shadow={1} style={CardStyle} className="card" onClick={toggleModal}>
-                  Card #1
+                  <Text style={CardTitleStyle}>Aliquam tristique non nunc nec pellentesque. Cras porttitor pretium libero id fermentum.</Text>
                 </Card>
               </ListContent>
 
