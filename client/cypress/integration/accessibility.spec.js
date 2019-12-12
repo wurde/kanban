@@ -17,5 +17,11 @@ describe('Accessibility', () => {
       'background-color',
       'rgb(239, 239, 239)'
     );
+
+    cy.get('.card').should(
+      'have.css',
+      'background-color',
+      'rgb(255, 255, 255)'
+    );
   });
 });

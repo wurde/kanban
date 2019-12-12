@@ -8,9 +8,11 @@ describe('Content', () => {
   });
 
   it('Has default lists', () => {
-    cy.contains('Backlog');
-    cy.contains('To Do');
-    cy.contains('In Progress');
-    cy.contains('Done');
+    cy.get('#board').should('have.css', 'display', 'flex');
+
+    cy.contains('Backlog').should('be.visible');
+    cy.contains('To Do').should('be.visible');
+    cy.contains('In Progress').should('be.visible');
+    cy.contains('Done').should('be.visible');
   });
 });
