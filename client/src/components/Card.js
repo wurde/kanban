@@ -35,7 +35,7 @@ function Card(props) {
       className="card"
       onClick={props.toggleModal}
     >
-      <Text>{props.card.title}</Text>
+      <Text>{props.card}</Text>
     </CardComponent>
   );
 }
