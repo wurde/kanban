@@ -4,6 +4,7 @@
 
 import React from 'react';
 import Card from './Card';
+import CardForm from './CardForm';
 
 /**
  * Define styles
@@ -25,6 +26,7 @@ function ListContent(props) {
   return (
     <div className="list-content" style={ListContentStyle}>
       {props.cards.map(card => <Card card={card} />)}
+      {props.showCardForm ? <CardForm /> : null}
     </div>
   );
 }

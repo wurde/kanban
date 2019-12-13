@@ -27,13 +27,19 @@ const IconStyle = {
  * Define component
  */
 
-function ListActions() {
+function ListActions(props) {
   return (
     <div className="list-actions" style={MainStyle}>
-      <Button type="secondary" style={ButtonStyle}>
-        <Icon type="plus" size={15} style={IconStyle} />
-        Add a card
-      </Button>
+      {props.showCardForm ? null :
+        <Button
+          type="secondary"
+          style={ButtonStyle}
+          onClick={() => props.setShowCardForm(true)}
+        >
+          <Icon type="plus" size={15} style={IconStyle} />
+          Add a card
+        </Button>
+      }
     </div>
   );
 }

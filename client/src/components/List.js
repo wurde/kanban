@@ -2,7 +2,7 @@
  * Dependencies
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import ListHeader from './ListHeader';
 import ListContent from './ListContent';
@@ -37,12 +37,21 @@ const CardList = styled.div`
  */
 
 function List(props) {
+  const [showCardForm, setShowCardForm] = useState(false);
+
   return (
     <ListWrapper className="List">
       <CardList>
         <ListHeader title={props.title} />
-        <ListContent cards={props.cards} />
-        <ListActions />
+        <ListContent
+          cards={props.cards}
+          showCardForm={showCardForm}
+          setShowCardForm={setShowCardForm}
+        />
+        <ListActions
+          showCardForm={showCardForm}
+          setShowCardForm={setShowCardForm}
+        />
       </CardList>
     </ListWrapper>
   );
