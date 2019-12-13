@@ -19,10 +19,10 @@ const BoardStyle = {
   bottom: 0,
   overflowX: 'auto',
   overflowY: 'hidden',
-  padding: '15px',
+  padding: '25px 15px 15px 15px',
   marginBottom: '5px',
   whiteSpace: 'nowrap',
-  userSelect: 'none',
+  userSelect: 'none'
 };
 
 /**
@@ -40,9 +40,9 @@ function Board() {
 
   return (
     <div className="Board" style={BoardStyle}>
-      {Object.keys(lists).map((list, i) => 
+      {Object.keys(lists).map((list, i) => (
         <List key={i} title={list} cards={lists[list]} />
-      )}
+      ))}
     </div>
   );
 };

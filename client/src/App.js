@@ -4,6 +4,7 @@
 
 import React from 'react';
 import Board from './components/Board';
+import ClearBoardBtn from './components/ClearBoardBtn';
 
 /**
  * Define component
@@ -12,6 +13,7 @@ import Board from './components/Board';
 function App() {
   return (
     <div className="App">
+      <ClearBoardBtn />
       <Board />
     </div>
   );
