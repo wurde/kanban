@@ -2,7 +2,7 @@
  * Dependencies
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import {
   Row,
@@ -57,8 +57,20 @@ const IconStyle = {
  */
 
 function CardForm(props) {
+  const [text, setText] = useState('');
+  const [cardText, setCardText] = useState('');
+
   function closeForm() {
     props.setShowCardForm(false);
+  }
+
+  function handleTextChange(e) {
+    e.preventDefault();
+    setText(e.target.value);
+  }
+
+  function addCard() {
+    console.log('text', text);
   }
 
   return (
@@ -66,14 +78,19 @@ function CardForm(props) {
       <Row>
         <Column>
           <CardComponent className="card-form" style={CardStyle}>
-            <Textarea autoFocus={true} placeholder="Enter text..."></Textarea>
+            <Textarea
+              autoFocus={true}
+              placeholder="Enter text..."
+              value={text}
+              onChange={handleTextChange}
+            ></Textarea>
           </CardComponent>
         </Column>
       </Row>
 
       <Row>
         <Column style={ControlsStyle}>
-          <Button type="success" style={ButtonStyle}>
+          <Button type="success" style={ButtonStyle} onClick={addCard}>
             Add Card
           </Button>
           <Icon
