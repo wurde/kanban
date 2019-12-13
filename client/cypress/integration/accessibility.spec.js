@@ -12,12 +12,6 @@ describe('Accessibility', () => {
 
     cy.get('h6').should('have.css', 'color', 'rgb(0, 0, 0)');
 
-    cy.get('.list-wrapper').should(
-      'have.css',
-      'background-color',
-      'rgb(241, 241, 244)'
-    );
-
     cy.get('.card')
       .should('have.css', 'background-color', 'rgb(255, 243, 205)')
       .should(
