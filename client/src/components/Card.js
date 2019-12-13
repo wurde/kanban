@@ -5,7 +5,7 @@
 import React from 'react';
 import {
   Card as CardComponent,
-  Paragraph
+  Text
 } from '@wurde/components';
 
 /**
@@ -20,10 +20,7 @@ const CardStyle = {
   zIndex: 0,
   cursor: 'pointer',
   draggable: true,
-};
-
-const CardTitleStyle = {
-  overflow: 'hidden',
+  whiteSpace: 'normal',
 };
 
 /**
@@ -38,9 +35,7 @@ function Card(props) {
       className="card"
       onClick={props.toggleModal}
     >
-      <Paragraph style={CardTitleStyle}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. And infinite.
-      </Paragraph>
+      <Text>{props.card.title}</Text>
     </CardComponent>
   );
 }
