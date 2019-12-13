@@ -4,7 +4,7 @@
 
 import React, { useState, useEffect } from 'react';
 import List from './List';
-import data from '../data/example.json';
+import data from '../data/default.json';
 
 /**
  * Define styles
@@ -33,11 +33,12 @@ function Board() {
   const [lists, setLists] = useState([]);
 
   useEffect(() => {
-    setLists(data.lists);
+    const prevLists = JSON.parse(localStorage.getItem('lists')) || data;
+    setLists(prevLists);
   }, [])
 
   return (
-    <div className="board" style={BoardStyle}>
+    <div className="Board" style={BoardStyle}>
       {lists.map((list, i) => 
         <List key={i} title={list.title} cards={list.cards} />
       )}

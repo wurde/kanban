@@ -25,8 +25,8 @@ const ListContentStyle = {
 function ListContent(props) {
   return (
     <div className="list-content" style={ListContentStyle}>
-      {props.cards.map(card => (
-        <Card card={card} />
+      {props.cards.map((card, i) => (
+        <Card key={i} card={card} />
       ))}
       {props.showCardForm ? (
         <CardForm setShowCardForm={props.setShowCardForm} />
