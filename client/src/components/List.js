@@ -15,8 +15,8 @@ import ListActions from './ListActions';
 const ListWrapper = styled.div`
   display: inline-block;
   box-sizing: border-box;
-  width: 450px;
-  max-width: 450px;
+  width: 350px;
+  max-width: 350px;
   height: 100%;
   margin: 0 15px;
   background-color: #f1f1f4;
