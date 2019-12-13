@@ -4,7 +4,6 @@
 
 import React from 'react';
 import { Heading } from '@wurde/components';
-import ListControl from './ListControl';
 
 /**
  * Define styles
@@ -26,7 +25,7 @@ function ListHeader(props) {
   return (
     <div className="list-header" style={ListHeaderStyle}>
       <Heading type="h6" style={HeadingStyle}>
-        {props.title} <ListControl />
+        {props.title}
       </Heading>
     </div>
   );

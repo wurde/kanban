@@ -49,7 +49,7 @@ const ButtonStyle = {
 
 const IconStyle = {
   marginBottom: '-5px',
-  cursor: 'pointer'
+  cursor: 'pointer',
 };
 
 /**
