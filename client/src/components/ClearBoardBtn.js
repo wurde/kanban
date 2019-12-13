@@ -24,6 +24,7 @@ function ClearBoardBtn() {
   function clearBoard() {
     const yes = window.confirm('Are you sure? This removes all cards.');
     if (yes) LocalStorage.clearAllCards();
+    window.location.reload(true);
   }
 
   return (
