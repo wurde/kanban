@@ -5,7 +5,11 @@
 import React from 'react';
 import styled from 'styled-components';
 import {
+  Row,
+  Column,
+  Button,
   Card as CardComponent,
+  Icon,
   Text
 } from '@wurde/components';
 import Card from './Card';
@@ -33,15 +37,54 @@ const Textarea = styled.textarea`
   outline: none;
 `;
 
+const ControlsStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  padding: '3px',
+};
+
+const ButtonStyle = {
+  marginRight: '10px',
+};
+
+const IconStyle = {
+  marginBottom: '-5px',
+  cursor: 'pointer'
+};
+
 /**
  * Define component
  */
 
 function CardForm(props) {
+  function closeForm() {
+    props.setShowCardForm(false);
+  }
+
   return (
-    <CardComponent className="card-form" style={CardStyle}>
-      <Textarea autoFocus={true}></Textarea>
-    </CardComponent>
+    <div className="card-form">
+      <Row>
+        <Column>
+          <CardComponent className="card-form" style={CardStyle}>
+            <Textarea autoFocus={true} placeholder="Enter text..."></Textarea>
+          </CardComponent>
+        </Column>
+      </Row>
+
+      <Row>
+        <Column style={ControlsStyle}>
+          <Button type="success" style={ButtonStyle}>
+            Add Card
+          </Button>
+          <Icon
+            type="close"
+            fill="#888"
+            style={IconStyle}
+            onClick={closeForm}
+          />
+        </Column>
+      </Row>
+    </div>
   );
 }
 
