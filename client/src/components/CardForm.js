@@ -26,7 +26,7 @@ const CardStyle = {
 
 const Textarea = styled.textarea`
   width: 100%;
-  height: 100%;
+  height: 20vh;
   background: none;
   border: none;
   box-shadow: none;
