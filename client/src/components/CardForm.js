@@ -72,6 +72,7 @@ function CardForm(props) {
 
   function addCard() {
     LocalStorage.addCard(props.list, text);
+    window.location.reload();
   }
 
   return (
