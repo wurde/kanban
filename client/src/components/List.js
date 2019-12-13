@@ -40,9 +40,9 @@ function List(props) {
   return (
     <ListWrapper className="List">
       <CardList>
-        <ListHeader title={props.title} />
+        {/* <ListHeader title={props.title} /> */}
         {/* <ListContent cards={props.cards} /> */}
-        <ListActions />
+        {/* <ListActions /> */}
       </CardList>
     </ListWrapper>
   );
