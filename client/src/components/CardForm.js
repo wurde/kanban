@@ -62,7 +62,7 @@ function CardForm(props) {
   }
 
   return (
-    <div className="card-form">
+    <div className="CardForm">
       <Row>
         <Column>
           <CardComponent className="card-form" style={CardStyle}>

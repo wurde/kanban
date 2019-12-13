@@ -23,7 +23,7 @@ const HeadingStyle = {
 
 function ListHeader(props) {
   return (
-    <div className="list-header" style={ListHeaderStyle}>
+    <div className="ListHeader" style={ListHeaderStyle}>
       <Heading type="h6" style={HeadingStyle}>
         {props.title}
       </Heading>

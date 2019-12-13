@@ -24,7 +24,7 @@ const ListContentStyle = {
 
 function ListContent(props) {
   return (
-    <div className="list-content" style={ListContentStyle}>
+    <div className="ListContent" style={ListContentStyle}>
       {props.cards.map((card, i) => (
         <Card key={i} card={card} />
       ))}

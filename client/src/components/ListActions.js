@@ -29,7 +29,7 @@ const IconStyle = {
 
 function ListActions(props) {
   return (
-    <div className="list-actions" style={MainStyle}>
+    <div className="ListActions" style={MainStyle}>
       {props.showCardForm ? null :
         <Button
           type="secondary"
