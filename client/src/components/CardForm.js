@@ -12,6 +12,7 @@ import {
   Icon,
   Text
 } from '@wurde/components';
+import LocalStorage from '../helpers/LocalStorage';
 import Card from './Card';
 
 /**
@@ -70,7 +71,7 @@ function CardForm(props) {
   }
 
   function addCard() {
-    console.log('text', text);
+    LocalStorage.addCard(props.list, text);
   }
 
   return (

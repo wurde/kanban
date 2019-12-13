@@ -1,18 +1,6 @@
-[
-  {
-    "title": "Backlog",
-    "cards": []
-  },
-  {
-    "title": "To Do",
-    "cards": []
-  },
-  {
-    "title": "In Progress",
-    "cards": []
-  },
-  {
-    "title": "Done",
-    "cards": []
-  }
-]
+{
+  "Backlog": [],
+  "To Do": [],
+  "In Progress": [],
+  "Done": []
+}

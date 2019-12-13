@@ -44,6 +44,7 @@ function List(props) {
       <CardList>
         <ListHeader title={props.title} />
         <ListContent
+          list={props.title}
           cards={props.cards}
           showCardForm={showCardForm}
           setShowCardForm={setShowCardForm}

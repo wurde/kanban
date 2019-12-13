@@ -29,7 +29,10 @@ function ListContent(props) {
         <Card key={i} card={card} />
       ))}
       {props.showCardForm ? (
-        <CardForm setShowCardForm={props.setShowCardForm} />
+        <CardForm
+          setShowCardForm={props.setShowCardForm}
+          list={props.list}
+        />
       ) : null}
     </div>
   );

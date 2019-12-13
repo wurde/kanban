@@ -33,14 +33,15 @@ function Board() {
   const [lists, setLists] = useState([]);
 
   useEffect(() => {
-    const prevLists = JSON.parse(localStorage.getItem('lists')) || data;
-    setLists(prevLists);
+    const prev = JSON.parse(localStorage.getItem('lists')) || data;
+    localStorage.setItem('lists', JSON.stringify(prev));
+    setLists(prev);
   }, [])
 
   return (
     <div className="Board" style={BoardStyle}>
-      {lists.map((list, i) => 
-        <List key={i} title={list.title} cards={list.cards} />
+      {Object.keys(lists).map((list, i) => 
+        <List key={i} title={list} cards={lists[list]} />
       )}
     </div>
   );
