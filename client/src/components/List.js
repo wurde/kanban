@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import ListHeader from './ListHeader';
 import ListContent from './ListContent';
 import ListActions from './ListActions';
+import DragOverMask from './DragOverMask';
 
 /**
  * Define styles
@@ -14,6 +15,7 @@ import ListActions from './ListActions';
 
 const ListWrapper = styled.div`
   display: inline-block;
+  position: relative;
   box-sizing: border-box;
   width: 350px;
   max-width: 350px;
@@ -32,56 +34,44 @@ const CardList = styled.div`
   padding: 0 15px;
 `;
 
-const ListWrapperStyle = isDragOver => {
-  const styles = {};
-  if (isDragOver) styles['backgroundColor'] = '#d3d3d3';
-  return styles;
-};
-
 /**
  * Define component
  */
 
 function List(props) {
-  const [isDragOver, setIsDragOver] = useState(false);
   const [showCardForm, setShowCardForm] = useState(false);
+  const [isPlaceholerVisible, setIsPlaceholerVisible] = useState(false);
   const [dragged, setDragged] = useState();
 
-  // function dragStart(e) {
-  //   setDragged(e.currentTarget);
-  //   e.dataTransfer.effectAllowed = 'move';
-  //   e.dataTransfer.setData('text/html', dragged);
-  //   // e.target.style.opacity = 0.5;
-  //   // el.style["transform"] = 'rotate(3deg)';
-  //   // el.style["box-shadow"] = 'rgba(77, 99, 119, 0.47) 0px 8px 10px -4px';
-  // }
+  function dragStart(e) {
+    console.log('dragStart');
+    setDragged(e.currentTarget);
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', dragged);
+  }
 
-  // function dragEnd(e) {
-  //   e.target.style.opacity = '';
-  //   dragged.style.display = 'block';
-  //   dragged.parentNode.removeChild(placeholder);
-  //   const data = this.state.colors;
-  //   const from = Number(dragged.dataset.id);
-  //   const to = Number(over.dataset.id);
-  //   if (from < to) to--;
-  //   data.splice(to, 0, data.splice(from, 1)[0]);
-  //   this.setState({ colors: data });
-  // }
+  function dragEnd(e) {
+    console.log('dragEnd');
+    setDragged(null);
+    setIsPlaceholerVisible(false);
+  }
 
-  // function dragOver(e) {
-  //   e.preventDefault();
-  //   if (!isDragOver) setIsDragOver(true);
-  //   dragged.style.display = 'none';
-  //   if (e.target.className === 'placeholder') return;
-  //   this.over = e.target;
-  //   e.target.parentNode.insertBefore(placeholder, e.target);
-  // }
+  function dragOver(e) {
+    e.preventDefault();
+    console.log('dragOver');
+    setIsPlaceholerVisible(true);
+  }
+
+  function dragLeave(e) {
+    e.preventDefault();
+    console.log('dragLeave');
+    setIsPlaceholerVisible(false);
+  }
 
   return (
-    <ListWrapper
-      className="List"
-      style={ListWrapperStyle(isDragOver)}
-    >
+    <ListWrapper className="List">
+      <DragOverMask onDragOver={dragOver} onDragLeave={dragLeave} />
+
       <CardList className="CardList">
         <ListHeader title={props.title} />
         <ListContent
@@ -89,6 +79,9 @@ function List(props) {
           cards={props.cards}
           showCardForm={showCardForm}
           setShowCardForm={setShowCardForm}
+          isPlaceholerVisible={isPlaceholerVisible}
+          dragStart={dragStart}
+          dragEnd={dragEnd}
         />
         <ListActions
           showCardForm={showCardForm}

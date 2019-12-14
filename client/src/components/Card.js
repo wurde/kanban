@@ -53,10 +53,12 @@ function Card(props) {
     <CardComponent
       shadow={1}
       style={CardStyle(isHover)}
-      className="card"
+      className="Card"
       draggable={true}
       onMouseEnter={mouseEnter}
       onMouseLeave={mouseLeave}
+      onDragStart={props.dragStart}
+      onDragEnd={props.dragEnd}
       onClick={props.toggleModal}
     >
       <Text>{text}</Text>
