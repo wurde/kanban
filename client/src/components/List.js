@@ -53,6 +53,7 @@ function List(props) {
   }
 
   function dragEnd(e) {
+    e.preventDefault();
     dragged.style.opacity = 1;
     props.setIsDragging(false);
     setDraggedElement(null);
@@ -69,11 +70,22 @@ function List(props) {
 
   function dragLeave(e) {
     e.preventDefault();
-    if (props.isDragging !== props.index) {
+    if (props.isDragging !== props.index) setIsPlaceholerVisible(false);
+  }
+
+  function dragOver(e) {
+    // React fails to fire onDrop events without this code.
+    e.preventDefault();
+  }
+
+  function drop(e) {
+    e.preventDefault();
+    if (props.isDragging !== props.index && isPlaceholerVisible) {
+      console.log('props.moveData', props.moveData);
       setIsPlaceholerVisible(false);
-      props.setMoveData({ ...props.moveData, to: null })
+      props.setMoveData({ ...props.moveData, to: null });
     }
-  } 
+  }
 
   return (
     <ListWrapper className="List">
@@ -82,6 +94,8 @@ function List(props) {
         isDragging={props.isDragging}
         onDragEnter={dragEnter}
         onDragLeave={dragLeave}
+        onDragOver={dragOver}
+        onDrop={drop}
       />
 
       <CardList className="CardList">
