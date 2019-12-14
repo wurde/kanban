@@ -49,6 +49,7 @@ function List(props) {
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', dragged);
     props.setIsDragging(props.index);
+    props.setMoveData({ ...props.moveData, from: props.index })
   }
 
   function dragEnd(e) {
@@ -60,12 +61,18 @@ function List(props) {
 
   function dragEnter(e) {
     e.preventDefault();
-    if (props.isDragging !== props.index) setIsPlaceholerVisible(true);
+    if (props.isDragging !== props.index) {
+      setIsPlaceholerVisible(true);
+      props.setMoveData({ ...props.moveData, to: props.index })
+    }
   }
 
   function dragLeave(e) {
     e.preventDefault();
-    if (props.isDragging !== props.index) setIsPlaceholerVisible(false);
+    if (props.isDragging !== props.index) {
+      setIsPlaceholerVisible(false);
+      props.setMoveData({ ...props.moveData, to: null })
+    }
   } 
 
   return (
