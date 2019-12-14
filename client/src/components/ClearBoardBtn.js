@@ -2,7 +2,7 @@
  * Dependencies
  */
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Icon } from '@wurde/components';
 import LocalStorage from '../helpers/LocalStorage';
 

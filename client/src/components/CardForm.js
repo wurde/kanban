@@ -9,11 +9,9 @@ import {
   Column,
   Button,
   Card as CardComponent,
-  Icon,
-  Text
+  Icon
 } from '@wurde/components';
 import LocalStorage from '../helpers/LocalStorage';
-import Card from './Card';
 
 /**
  * Define styles
@@ -59,7 +57,6 @@ const IconStyle = {
 
 function CardForm(props) {
   const [text, setText] = useState('');
-  const [cardText, setCardText] = useState('');
 
   function closeForm() {
     props.setShowCardForm(false);
