@@ -3,6 +3,7 @@
  */
 
 class LocalStorage {
+  // TODO support adding to lists by list index
   static addCard(list, title) {
     let lists = JSON.parse(localStorage.getItem('lists'));
 

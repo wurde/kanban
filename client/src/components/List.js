@@ -8,6 +8,7 @@ import ListHeader from './ListHeader';
 import ListContent from './ListContent';
 import ListActions from './ListActions';
 import DragOverMask from './DragOverMask';
+import LocalStorage from '../helpers/LocalStorage';
 
 /**
  * Define styles
@@ -49,7 +50,11 @@ function List(props) {
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', dragged);
     props.setIsDragging(props.index);
-    props.setMoveData({ ...props.moveData, from: props.index })
+    props.setMoveData({
+      ...props.moveData,
+      from: props.index,
+      text: e.currentTarget.textContent
+    });
   }
 
   function dragEnd(e) {
@@ -81,9 +86,13 @@ function List(props) {
   function drop(e) {
     e.preventDefault();
     if (props.isDragging !== props.index && isPlaceholerVisible) {
-      console.log('props.moveData', props.moveData);
+      const data = props.moveData;
+      console.log('data', data)
+      LocalStorage.addCard(data.to, data.text);
+
       setIsPlaceholerVisible(false);
-      props.setMoveData({ ...props.moveData, to: null });
+      props.setMoveData({ ...props.moveData, to: null, text: null });
+      window.location.reload();
     }
   }
 
