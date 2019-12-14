@@ -41,24 +41,26 @@ const CardList = styled.div`
 function List(props) {
   const [showCardForm, setShowCardForm] = useState(false);
   const [isPlaceholerVisible, setIsPlaceholerVisible] = useState(false);
-  const [dragged, setDragged] = useState();
+  const [dragged, setDraggedElement] = useState();
 
   function dragStart(e) {
     console.log('dragStart');
-    setDragged(e.currentTarget);
+    setDraggedElement(e.currentTarget);
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', dragged);
+    props.setIsDragging(props.index);
   }
 
   function dragEnd(e) {
     console.log('dragEnd');
-    setDragged(null);
+    props.setIsDragging(false);
+    setDraggedElement(null);
     setIsPlaceholerVisible(false);
   }
 
-  function dragOver(e) {
+  function dragEnter(e) {
     e.preventDefault();
-    console.log('dragOver');
+    console.log('dragEnter');
     setIsPlaceholerVisible(true);
   }
 
@@ -66,11 +68,16 @@ function List(props) {
     e.preventDefault();
     console.log('dragLeave');
     setIsPlaceholerVisible(false);
-  }
+  } 
 
   return (
     <ListWrapper className="List">
-      <DragOverMask onDragOver={dragOver} onDragLeave={dragLeave} />
+      <DragOverMask
+        listIndex={props.index}
+        isDragging={props.isDragging}
+        onDragEnter={dragEnter}
+        onDragLeave={dragLeave}
+      />
 
       <CardList className="CardList">
         <ListHeader title={props.title} />

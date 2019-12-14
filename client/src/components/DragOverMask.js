@@ -15,6 +15,15 @@ const DragOverMask = styled.div`
   width: 100%;
   height: 100%;
   background: none;
+  z-index: ${props => {
+    if (props.isDragging === false) return 0;
+
+    if (props.isDragging === props.listIndex) {
+      return 0;
+    } else {
+      return 10;
+    }
+  }};
 `;
 
 /**

@@ -31,6 +31,7 @@ const BoardStyle = {
 
 function Board() {
   const [lists, setLists] = useState([]);
+  const [isDragging, setIsDragging] = useState(false);
 
   useEffect(() => {
     const prev = JSON.parse(localStorage.getItem('lists')) || data;
@@ -41,7 +42,14 @@ function Board() {
   return (
     <div className="Board" style={BoardStyle}>
       {Object.keys(lists).map((list, i) => (
-        <List key={i} title={list} cards={lists[list]} />
+        <List
+          key={i}
+          index={i}
+          title={list}
+          cards={lists[list]}
+          isDragging={isDragging}
+          setIsDragging={setIsDragging}
+        />
       ))}
     </div>
   );
