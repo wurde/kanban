@@ -16,12 +16,8 @@ const Placeholder = styled.div`
   whitespace: normal;
   border: 3px solid #000;
   border-style: dotted;
-  ${props => {
-    console.log('isVisible', props.isVisible);
-    return (props.isVisible ? 'display: block' : 'display: none')
-  }}
+  ${props =>  (props.isVisible ? 'display: block' : 'display: none')}
 `;
-// ${props => (props.isVisible ? 'display: block' : 'display: none')}
 
 /**
  * Export component

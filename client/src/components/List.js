@@ -44,6 +44,7 @@ function List(props) {
   const [dragged, setDraggedElement] = useState();
 
   function dragStart(e) {
+    e.currentTarget.style.opacity = 0.5;
     setDraggedElement(e.currentTarget);
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', dragged);
@@ -51,6 +52,7 @@ function List(props) {
   }
 
   function dragEnd(e) {
+    dragged.style.opacity = 1;
     props.setIsDragging(false);
     setDraggedElement(null);
     setIsPlaceholerVisible(false);
