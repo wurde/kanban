@@ -44,7 +44,6 @@ function List(props) {
   const [dragged, setDraggedElement] = useState();
 
   function dragStart(e) {
-    console.log('dragStart');
     setDraggedElement(e.currentTarget);
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', dragged);
@@ -52,7 +51,6 @@ function List(props) {
   }
 
   function dragEnd(e) {
-    console.log('dragEnd');
     props.setIsDragging(false);
     setDraggedElement(null);
     setIsPlaceholerVisible(false);
@@ -60,14 +58,12 @@ function List(props) {
 
   function dragEnter(e) {
     e.preventDefault();
-    console.log('dragEnter');
-    setIsPlaceholerVisible(true);
+    if (props.isDragging !== props.index) setIsPlaceholerVisible(true);
   }
 
   function dragLeave(e) {
     e.preventDefault();
-    console.log('dragLeave');
-    setIsPlaceholerVisible(false);
+    if (props.isDragging !== props.index) setIsPlaceholerVisible(false);
   } 
 
   return (
