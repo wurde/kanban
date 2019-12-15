@@ -87,8 +87,7 @@ function List(props) {
     e.preventDefault();
     if (props.isDragging !== props.index && isPlaceholerVisible) {
       const data = props.moveData;
-      console.log('data', data)
-      LocalStorage.addCard(data.to, data.text);
+      LocalStorage.moveCard(data.from, data.to, data.text);
 
       setIsPlaceholerVisible(false);
       props.setMoveData({ ...props.moveData, to: null, text: null });
@@ -110,6 +109,7 @@ function List(props) {
       <CardList className="CardList">
         <ListHeader title={props.title} />
         <ListContent
+          listIndex={props.index}
           list={props.title}
           cards={props.cards}
           showCardForm={showCardForm}

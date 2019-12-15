@@ -68,7 +68,7 @@ function CardForm(props) {
   }
 
   function addCard() {
-    LocalStorage.addCard(props.list, text);
+    LocalStorage.addCard(props.listIndex, text);
     window.location.reload();
   }
 

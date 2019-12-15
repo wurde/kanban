@@ -38,7 +38,10 @@ function ListContent(props) {
       ))}
 
       {props.showCardForm ? (
-        <CardForm setShowCardForm={props.setShowCardForm} list={props.list} />
+        <CardForm
+          setShowCardForm={props.setShowCardForm}
+          listIndex={props.listIndex}
+        />
       ) : null}
     </div>
   );

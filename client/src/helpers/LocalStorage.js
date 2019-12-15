@@ -3,24 +3,35 @@
  */
 
 class LocalStorage {
-  // TODO support adding to lists by list index
-  static addCard(list, title) {
-    let lists = JSON.parse(localStorage.getItem('lists'));
+  static addCard(listIndex, title) {
+    const data = JSON.parse(localStorage.getItem('lists'));
+    const lists = Object.keys(data);
+    const i = listIndex;
 
-    if (list in lists) {
-      lists[list] = lists[list].concat(title);
-    }
+    data[lists[i]] = data[lists[i]].concat(title);
 
-    localStorage.setItem('lists', JSON.stringify(lists));
+    localStorage.setItem('lists', JSON.stringify(data));
   }
 
-  static clearAllCards(list, title) {
-    const lists = JSON.parse(localStorage.getItem('lists'));
+  static moveCard(fromListIndex, toListIndex, title) {
+    const data = JSON.parse(localStorage.getItem('lists'));
+    const lists = Object.keys(data);
+    const from_i = fromListIndex;
+    const to_i = toListIndex;
 
-    const empty = Object.keys(lists).reduce((obj, list) => {
+    data[lists[from_i]] = data[lists[from_i]].filter(card => card !== title);
+    data[lists[to_i]] = data[lists[to_i]].concat(title);
+
+    localStorage.setItem('lists', JSON.stringify(data));
+  }
+
+  static clearAllCards() {
+    const data = JSON.parse(localStorage.getItem('lists'));
+
+    const empty = Object.keys(data).reduce((obj, list) => {
       obj[list] = [];
       return obj;
-    }, {})
+    }, {});
 
     localStorage.setItem('lists', JSON.stringify(empty));
   }
