@@ -20,7 +20,7 @@ class LocalStorage {
     const to_i = toListIndex;
 
     data[lists[from_i]] = data[lists[from_i]].filter(card => card !== title);
-    data[lists[to_i]] = data[lists[to_i]].concat(title);
+    data[lists[to_i]] = [title].concat(data[lists[to_i]]);
 
     localStorage.setItem('lists', JSON.stringify(data));
   }
