@@ -96,7 +96,7 @@ function List(props) {
   }
 
   return (
-    <ListWrapper className="List">
+    <ListWrapper className={`List List-${props.index}`}>
       <DragOverMask
         listIndex={props.index}
         isDragging={props.isDragging}

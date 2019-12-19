@@ -82,6 +82,7 @@ function CardForm(props) {
               placeholder="Enter text..."
               value={text}
               onChange={handleTextChange}
+              className="card-textarea"
             ></Textarea>
           </CardComponent>
         </Column>
@@ -97,6 +98,7 @@ function CardForm(props) {
             fill="#888"
             style={IconStyle}
             onClick={closeForm}
+            className="close-icon"
           />
         </Column>
       </Row>

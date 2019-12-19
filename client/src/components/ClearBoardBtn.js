@@ -34,6 +34,7 @@ function ClearBoardBtn() {
       fill="#888"
       onClick={clearBoard}
       style={style}
+      id="clear-board"
     />
   )
 };

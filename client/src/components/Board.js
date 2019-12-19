@@ -45,7 +45,7 @@ function Board() {
       {Object.keys(lists).map((list, i) => (
         <List
           key={i}
-          index={i}
+          index={i}          
           title={list}
           cards={lists[list]}
           isDragging={isDragging}
