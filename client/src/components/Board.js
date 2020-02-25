@@ -3,6 +3,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import store from 'store2';
 import List from './List';
 import data from '../data/default.json';
 
@@ -34,10 +35,14 @@ function Board() {
   const [isDragging, setIsDragging] = useState(false);
   const [moveData, setMoveData] = useState({});
 
+  function updateLists(listData) {
+    store.set("lists", listData);
+    setLists(listData);
+  }
+
   useEffect(() => {
-    const prev = JSON.parse(localStorage.getItem('lists')) || data;
-    localStorage.setItem('lists', JSON.stringify(prev));
-    setLists(prev);
+    const listData = store.get("lists") || data;
+    setLists(listData);
   }, [])
 
   return (
@@ -52,6 +57,7 @@ function Board() {
           setIsDragging={setIsDragging}
           moveData={moveData}
           setMoveData={setMoveData}
+          updateLists={updateLists}
         />
       ))}
     </div>

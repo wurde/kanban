@@ -112,6 +112,7 @@ function List(props) {
           listIndex={props.index}
           list={props.title}
           cards={props.cards}
+          updateLists={props.updateLists}
           showCardForm={showCardForm}
           setShowCardForm={setShowCardForm}
           isPlaceholerVisible={isPlaceholerVisible}
