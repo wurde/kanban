@@ -110,7 +110,6 @@ function List(props) {
         <ListHeader title={props.title} />
         <ListContent
           listIndex={props.index}
-          list={props.title}
           cards={props.cards}
           updateLists={props.updateLists}
           showCardForm={showCardForm}

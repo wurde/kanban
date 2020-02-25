@@ -68,7 +68,8 @@ function CardForm(props) {
   }
 
   function addCard() {
-    LocalStorage.addCard(props.listIndex, text);
+    console.log('props.list', props.list)
+    // LocalStorage.addCard(props.listIndex, text);
     // TODO add card to lists data
 
     // TEMP - remove page reload (in favor of dynamic loading)
