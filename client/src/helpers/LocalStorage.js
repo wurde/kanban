@@ -3,16 +3,6 @@
  */
 
 class LocalStorage {
-  static addCard(listIndex, title) {
-    const data = JSON.parse(localStorage.getItem('lists'));
-    const lists = Object.keys(data);
-    const i = listIndex;
-
-    data[lists[i]] = data[lists[i]].concat(title);
-
-    localStorage.setItem('lists', JSON.stringify(data));
-  }
-
   static moveCard(fromListIndex, toListIndex, title) {
     const data = JSON.parse(localStorage.getItem('lists'));
     const lists = Object.keys(data);

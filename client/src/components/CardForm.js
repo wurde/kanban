@@ -11,7 +11,6 @@ import {
   Card as CardComponent,
   Icon
 } from '@wurde/components';
-import LocalStorage from '../helpers/LocalStorage';
 
 /**
  * Define styles
@@ -68,12 +67,9 @@ function CardForm(props) {
   }
 
   function addCard() {
-    console.log('props.list', props.list)
-    // LocalStorage.addCard(props.listIndex, text);
-    // TODO add card to lists data
-
-    // TEMP - remove page reload (in favor of dynamic loading)
-    // window.location.reload();
+    let listData = { ...props.lists };
+    listData[props.listTitle] = [text, ...listData[props.listTitle]];
+    props.updateLists(listData);
   }
 
   return (

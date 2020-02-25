@@ -40,11 +40,12 @@ function Board(props) {
           index={i}
           title={list}
           cards={props.lists[list]}
+          lists={props.lists}
+          updateLists={props.updateLists}
           isDragging={isDragging}
           setIsDragging={setIsDragging}
           moveData={moveData}
           setMoveData={setMoveData}
-          updateLists={props.updateLists}
         />
       ))}
     </div>

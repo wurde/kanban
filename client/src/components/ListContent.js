@@ -39,9 +39,10 @@ function ListContent(props) {
 
       {props.showCardForm ? (
         <CardForm
+          listTitle={props.listTitle}
+          lists={props.lists}
           updateLists={props.updateLists}
           setShowCardForm={props.setShowCardForm}
-          listIndex={props.listIndex}
         />
       ) : null}
     </div>
