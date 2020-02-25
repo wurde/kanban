@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <ClearBoardBtn />
+      <ClearBoardBtn updateLists={updateLists} />
       <Board lists={lists} updateLists={updateLists} />
     </div>
   );

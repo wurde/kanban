@@ -24,17 +24,6 @@ class LocalStorage {
 
     localStorage.setItem('lists', JSON.stringify(data));
   }
-
-  static clearAllCards() {
-    const data = JSON.parse(localStorage.getItem('lists'));
-
-    const empty = Object.keys(data).reduce((obj, list) => {
-      obj[list] = [];
-      return obj;
-    }, {});
-
-    localStorage.setItem('lists', JSON.stringify(empty));
-  }
 }
 
 /**

@@ -68,17 +68,11 @@ function CardForm(props) {
   }
 
   function addCard() {
-    // LocalStorage.addCard(props.listIndex, text);
+    LocalStorage.addCard(props.listIndex, text);
     // TODO add card to lists data
 
     // TEMP - remove page reload (in favor of dynamic loading)
     // window.location.reload();
-    props.updateLists({
-      Backlog: [],
-      "To Do": [],
-      "In Progress": [],
-      Done: []
-    });
   }
 
   return (
