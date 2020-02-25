@@ -2,9 +2,9 @@
  * Dependencies
  */
 
-import React from 'react';
-import { Icon } from '@wurde/components';
-import LocalStorage from '../helpers/LocalStorage';
+import React from "react";
+import { Icon } from "@wurde/components";
+import LocalStorage from "../helpers/LocalStorage";
 import data from "../data/default.json";
 
 /**
