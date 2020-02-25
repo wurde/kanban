@@ -8,7 +8,6 @@ import ListHeader from './ListHeader';
 import ListContent from './ListContent';
 import ListActions from './ListActions';
 import DragOverMask from './DragOverMask';
-import LocalStorage from '../helpers/LocalStorage';
 
 /**
  * Define styles
@@ -87,11 +86,15 @@ function List(props) {
     e.preventDefault();
     if (props.isDragging !== props.index && isPlaceholerVisible) {
       const data = props.moveData;
-      LocalStorage.moveCard(data.from, data.to, data.text);
+      const listTitles = Object.keys(props.lists);
+      let listData = {...props.lists};
+
+      listData[listTitles[data.from]] = listData[listTitles[data.from]].filter(card => card !== data.text);
+      listData[listTitles[data.to]] = [data.text].concat(listData[listTitles[data.to]]);
 
       setIsPlaceholerVisible(false);
+      props.updateLists(listData)
       props.setMoveData({ ...props.moveData, to: null, text: null });
-      window.location.reload();
     }
   }
 
