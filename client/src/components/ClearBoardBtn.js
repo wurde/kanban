@@ -28,7 +28,7 @@ function ClearBoardBtn() {
   }
 
   return (
-    <Icon 
+    <Icon
       type="refresh"
       size={18}
       fill="#888"

@@ -2,10 +2,8 @@
  * Dependencies
  */
 
-import React, { useState, useEffect } from 'react';
-import store from 'store2';
+import React, { useState } from 'react';
 import List from './List';
-import data from '../data/default.json';
 
 /**
  * Define styles
@@ -30,34 +28,23 @@ const BoardStyle = {
  * Define component
  */
 
-function Board() {
-  const [lists, setLists] = useState([]);
+function Board(props) {
   const [isDragging, setIsDragging] = useState(false);
   const [moveData, setMoveData] = useState({});
 
-  function updateLists(listData) {
-    store.set("lists", listData);
-    setLists(listData);
-  }
-
-  useEffect(() => {
-    const listData = store.get("lists") || data;
-    setLists(listData);
-  }, [])
-
   return (
     <div className="Board" style={BoardStyle}>
-      {Object.keys(lists).map((list, i) => (
+      {Object.keys(props.lists).map((list, i) => (
         <List
           key={i}
           index={i}
           title={list}
-          cards={lists[list]}
+          cards={props.lists[list]}
           isDragging={isDragging}
           setIsDragging={setIsDragging}
           moveData={moveData}
           setMoveData={setMoveData}
-          updateLists={updateLists}
+          updateLists={props.updateLists}
         />
       ))}
     </div>
