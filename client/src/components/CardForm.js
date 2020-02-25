@@ -67,10 +67,12 @@ function CardForm(props) {
   }
 
   function addCard() {
-    let listData = { ...props.lists };
-    listData[props.listTitle] = [...listData[props.listTitle], text];
-    props.updateLists(listData);
-    setText('');
+    if (text.length > 0) {
+      let listData = { ...props.lists };
+      listData[props.listTitle] = [...listData[props.listTitle], text];
+      props.updateLists(listData);
+      setText('');
+    }
   }
 
   return (
