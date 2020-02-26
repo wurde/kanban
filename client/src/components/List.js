@@ -91,7 +91,6 @@ function List(props) {
       let listData = {...props.lists};
       listData[listTitles[data.from]] = listData[listTitles[data.from]].filter(card => card !== data.text);
       listData[listTitles[data.to]] = [data.text].concat(listData[listTitles[data.to]]);
-
       setIsPlaceholerVisible(false);
       props.setMoveData({ ...props.moveData, to: null, text: null });
       props.updateLists(listData);
