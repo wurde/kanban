@@ -2,9 +2,9 @@
  * Dependencies
  */
 
-import React from 'react';
-import { Icon } from '@wurde/components';
-import LocalStorage from '../helpers/LocalStorage';
+import React from "react";
+import { Icon } from "@wurde/components";
+import data from "../data/default.json";
 
 /**
  * Define styles
@@ -20,15 +20,14 @@ const style = {
  * Define component
  */
 
-function ClearBoardBtn() {
+function ClearBoardBtn(props) {
   function clearBoard() {
     const yes = window.confirm('Are you sure? This removes all cards.');
-    if (yes) LocalStorage.clearAllCards();
-    window.location.reload(true);
+    if (yes) props.updateLists(data);
   }
 
   return (
-    <Icon 
+    <Icon
       type="refresh"
       size={18}
       fill="#888"

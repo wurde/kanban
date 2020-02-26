@@ -36,7 +36,6 @@ const CardStyle = isHover => {
  */
 
 function Card(props) {
-  const [text, setText] = useState(props.card);
   const [isHover, setIsHover] = useState(false);
 
   function mouseEnter(e) {
@@ -61,7 +60,7 @@ function Card(props) {
       onDragEnd={props.dragEnd}
       onClick={props.toggleModal}
     >
-      <Text>{text}</Text>
+      <Text>{props.card}</Text>
     </CardComponent>
   );
 }

@@ -2,7 +2,7 @@
  * Dependencies
  */
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from "react";
 import styled from 'styled-components';
 import {
   Row,
@@ -11,7 +11,6 @@ import {
   Card as CardComponent,
   Icon
 } from '@wurde/components';
-import LocalStorage from '../helpers/LocalStorage';
 
 /**
  * Define styles
@@ -57,6 +56,7 @@ const IconStyle = {
 
 function CardForm(props) {
   const [text, setText] = useState('');
+  const inputRef = useRef(null);
 
   function closeForm() {
     props.setShowCardForm(false);
@@ -68,8 +68,13 @@ function CardForm(props) {
   }
 
   function addCard() {
-    LocalStorage.addCard(props.listIndex, text);
-    window.location.reload();
+    if (text.length > 0) {
+      let listData = { ...props.lists };
+      listData[props.listTitle] = [...listData[props.listTitle], text];
+      props.updateLists(listData);
+      setText('');
+      inputRef.current.focus();
+    }
   }
 
   return (
@@ -78,6 +83,7 @@ function CardForm(props) {
         <Column>
           <CardComponent className="card-form" style={CardStyle}>
             <Textarea
+              ref={inputRef}
               autoFocus={true}
               placeholder="Enter text..."
               value={text}
